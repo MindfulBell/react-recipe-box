@@ -10,7 +10,7 @@ const RecipeList = (props) => {
 	});
   	
     return  (
-    	<div className='panel-group row' id='accordion' role='tab-list' aria-multiselectable='true'>
+    	<div className='panel-group row' id='accordion' role='tablist' aria-multiselectable='true'>
     	<ReactCSSTransitionGroup transitionName="fadein" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
     		{recipeList} 
     	</ReactCSSTransitionGroup>
