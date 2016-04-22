@@ -5,13 +5,14 @@ const Recipe = (props) => {
 		return <li key={ind}>{ingredient}</li>;
 	});
 	//unique values for the accordion table
-	const recipeId = props.ident;
-	const hashedId = `#${recipeId}`;
+	const recipeId = `collapse${props.ident}`;//collapse0
+	const hashedId = `#${recipeId}`;//#collapse0
+	const heading = `heading${props.ident}`//heading0
 	return (
     <div className='panel panel-default'>
-    	<div className='panel-heading' role='tab' id='headingOne'>
+    	<div className='panel-heading' role='tab' id={heading}>
     		<h4 className='panel-title'>
-    			<a role='button' data-toggle='collapse' 
+    			<a data-toggle='collapse' 
     			data-parent='#accordion' 
     			href={hashedId} 
     			aria-expanded='true'
@@ -23,7 +24,7 @@ const Recipe = (props) => {
     	<div id={recipeId} 
     	className='panel-collapse collapse'
     	role='tabpanel' 
-    	aria-labelledby={recipeId}>
+    	aria-labelledby={heading}>
 		    <div className='panel-body'>
 		    	<h4>Ingredients</h4>
 		    	<ol>

@@ -1,7 +1,7 @@
 {
   "name": "react-recipe-box",
   "version": "1.0.0",
-  "description": "template for all React apps",
+  "description": "Recipe Box built for Free Code Camp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

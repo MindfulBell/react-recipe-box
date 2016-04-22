@@ -21292,13 +21292,19 @@
 	var RecipeList = function RecipeList(props) {
 	  //build the recipe array here
 	  var recipeList = props.recipe.map(function (recipe, ind) {
-	    return _react2.default.createElement(_recipe2.default, { key: ind, ident: ind, ingredients: recipe.ingredients, recipeName: recipe.recipeName,
-	      instructions: recipe.instructions, handleRecipe: props.handleRecipe });
+	    return _react2.default.createElement(_recipe2.default, {
+	      key: ind,
+	      ident: ind,
+	      ingredients: recipe.ingredients,
+	      recipeName: recipe.recipeName,
+	      instructions: recipe.instructions,
+	      handleRecipe: props.handleRecipe
+	    });
 	  });
 	
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'panel-group row', id: 'accordion', role: 'tablist', 'aria-multiselectable': 'true' },
+	    { className: 'panel-group', id: 'accordion', role: 'tablist', 'aria-multiselectable': 'true' },
 	    _react2.default.createElement(
 	      _reactAddonsCssTransitionGroup2.default,
 	      { transitionName: 'fadein', transitionEnterTimeout: 500, transitionLeaveTimeout: 300 },
@@ -21337,20 +21343,24 @@
 			);
 		});
 		//unique values for the accordion table
-		var recipeId = props.ident;
-		var hashedId = '#' + recipeId;
+		var recipeId = 'collapse' + props.ident; //collapse0
+		var hashedId = '#' + recipeId; //#collapse0
+		var heading = 'heading' + props.ident; //heading0
 		return _react2.default.createElement(
 			'div',
 			{ className: 'panel panel-default' },
 			_react2.default.createElement(
 				'div',
-				{ className: 'panel-heading', role: 'tab', id: 'headingOne' },
+				{ className: 'panel-heading', role: 'tab', id: heading },
 				_react2.default.createElement(
 					'h4',
 					{ className: 'panel-title' },
 					_react2.default.createElement(
 						'a',
-						{ role: 'button', 'data-toggle': 'collapse', 'data-parent': '#accordion', href: hashedId, 'aria-expanded': 'true',
+						{ 'data-toggle': 'collapse',
+							'data-parent': '#accordion',
+							href: hashedId,
+							'aria-expanded': 'true',
 							'aria-controls': recipeId },
 						props.recipeName
 					)
@@ -21358,7 +21368,10 @@
 			),
 			_react2.default.createElement(
 				'div',
-				{ id: recipeId, className: 'panel-collapse collapse', role: 'tabpanel', 'aria-labelledby': recipeId },
+				{ id: recipeId,
+					className: 'panel-collapse collapse',
+					role: 'tabpanel',
+					'aria-labelledby': heading },
 				_react2.default.createElement(
 					'div',
 					{ className: 'panel-body' },
@@ -21384,7 +21397,8 @@
 					),
 					_react2.default.createElement(
 						'button',
-						{ type: 'delete', id: 'delButton', className: 'hvr-sweep-to-right btn btn-danger',
+						{ type: 'delete', id: 'delButton',
+							className: 'hvr-sweep-to-right btn btn-danger',
 							onClick: function onClick(event) {
 								return props.handleRecipe(event.target.parentNode.parentNode.id, event.target.id);
 							} },
@@ -21394,8 +21408,12 @@
 						'button',
 						{ onClick: function onClick(event) {
 								return props.handleRecipe(event.target.parentNode.parentNode.id, event.target.id);
-							}, type: 'edit',
-							id: 'editButton', className: 'hvr-sweep-to-right btn', 'data-toggle': 'modal', 'data-target': '#addPopUp' },
+							},
+							type: 'edit',
+							id: 'editButton',
+							className: 'hvr-sweep-to-right btn',
+							'data-toggle': 'modal',
+							'data-target': '#addPopUp' },
 						'Edit'
 					)
 				)
